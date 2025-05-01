@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UrbanEats - Premium Groceries & Restaurant Food Delivery</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#10B981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+display: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.category-scroll::-webkit-scrollbar {
+height: 0;
+width: 0;
+}
+.restaurant-scroll::-webkit-scrollbar {
+height: 0;
+width: 0;
+}
+.hero-gradient {
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0) 100%);
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<div class="flex items-center">
+<h1 class="text-2xl font-['Pacifico'] text-primary mr-8">logo</h1>
+<div class="hidden md:flex items-center space-x-6 text-gray-600">
+<a href="#" class="hover:text-primary transition-colors">Home</a>
+<a href="#" class="hover:text-primary transition-colors">About</a>
+<a href="#" class="hover:text-primary transition-colors">Contact</a>
+</div>
+</div>
+<div class="relative w-full max-w-md mx-4">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<input type="search" class="w-full pl-10 pr-4 py-2.5 text-sm text-gray-700 bg-gray-100 rounded-full border-none focus:ring-2 focus:ring-primary/20 focus:outline-none" placeholder="Search for groceries or restaurants">
+</div>
+<div class="flex items-center space-x-5">
+<div class="flex items-center text-sm text-gray-700 cursor-pointer">
+<div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="hidden md:inline">New York, NY</span>
+</div>
+<div class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 cursor-pointer hover:bg-gray-200 transition-colors">
+<i class="ri-user-line"></i>
+</div>
+<div class="relative w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 cursor-pointer hover:bg-gray-200 transition-colors">
+<i class="ri-shopping-cart-line"></i>
+<span class="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center text-xs text-white bg-primary rounded-full">3</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-[500px] overflow-hidden">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=a%20premium%20food%20delivery%20service%20scene%20with%20fresh%20groceries%20and%20gourmet%20restaurant%20dishes%2C%20high-end%20food%20photography%20with%20elegant%20plating%2C%20vibrant%20fresh%20vegetables%20and%20fruits%20arranged%20artistically%20on%20the%20right%20side%2C%20clean%20white%20space%20on%20the%20left%20for%20text%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20professional%20food%20photography&width=1920&height=800&seq=1&orientation=landscape');" class="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full object-top"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative container mx-auto px-4 h-full flex items-center">
+<div class="max-w-xl">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Premium Groceries & Restaurant Food Delivery</h1>
+<p class="text-lg text-gray-700 mb-8">Get fresh groceries and your favorite restaurant meals delivered to your doorstep in one seamless experience.</p>
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+<a href="groceries.html" class="px-6 py-3 bg-primary text-white font-medium rounded-button shadow-lg hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-store-2-line"></i>
+</div>
+Shop Groceries
+<button Shop Groceries >
+    <a href="pageindex.html">Shop Groceries</a>
+</button>
+</a>
+<button class="px-6 py-3 bg-white text-primary font-medium rounded-button shadow-lg hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-restaurant-line"></i>
+</div>
+Order from Restaurants
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Categories -->
+<section class="py-12 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-2xl font-bold text-gray-900 mb-8">Top Categories</h2>
+<div class="category-scroll flex space-x-6 overflow-x-auto pb-4">
+<div class="flex flex-col items-center space-y-3 cursor-pointer group">
+<div class="w-20 h-20 rounded-full bg-orange-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<div class="w-10 h-10 flex items-center justify-center text-orange-500">
+<i class="ri-apple-line ri-xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-800">Fruits</span>
+</div>
+<div class="flex flex-col items-center space-y-3 cursor-pointer group">
+<div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<div class="w-10 h-10 flex items-center justify-center text-green-500">
+<i class="ri-plant-line ri-xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-800">Vegetables</span>
+</div>
+<div class="flex flex-col items-center space-y-3 cursor-pointer group">
+<div class="w-20 h-20 rounded-full bg-yellow-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<div class="w-10 h-10 flex items-center justify-center text-yellow-500">
+<i class="ri-cake-3-line ri-xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-800">Bakery</span>
+</div>
+<div class="flex flex-col items-center space-y-3 cursor-pointer group">
+<div class="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<div class="w-10 h-10 flex items-center justify-center text-blue-500">
+<i class="ri-water-flash-line ri-xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-800">Beverages</span>
+</div>
+<div class="flex flex-col items-center space-y-3 cursor-pointer group">
+<div class="w-20 h-20 rounded-full bg-indigo-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<div class="w-10 h-10 flex items-center justify-center text-indigo-500">
+<i class="ri-cup-line ri-xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-800">Dairy</span>
+</div>
+<div class="flex flex-col items-center space-y-3 cursor-pointer group">
+<div class="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<div class="w-10 h-10 flex items-center justify-center text-red-500">
+<i class="ri-meat-line ri-xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-800">Meat</span>
+</div>
+<div class="flex flex-col items-center space-y-3 cursor-pointer group">
+<div class="w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<div class="w-10 h-10 flex items-center justify-center text-purple-500">
+<i class="ri-snack-line ri-xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-800">Snacks</span>
+</div>
+<div class="flex flex-col items-center space-y-3 cursor-pointer group">
+<div class="w-20 h-20 rounded-full bg-pink-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<div class="w-10 h-10 flex items-center justify-center text-pink-500">
+<i class="ri-shopping-basket-line ri-xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-800">Essentials</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Best Sellers Section -->
+<section class="py-12 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-2xl font-bold text-gray-900">Best Sellers</h2>
+<div class="bg-white rounded-full p-1 shadow-sm">
+<div class="flex">
+<button id="groceryTab" class="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium whitespace-nowrap">Groceries</button>
+<button id="restaurantTab" class="px-4 py-2 rounded-full text-gray-700 text-sm font-medium whitespace-nowrap">Restaurants</button>
+</div>
+</div>
+</div>
+<div id="groceryContent" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=premium%20organic%20avocados%20on%20clean%20white%20background%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20fresh%20and%20vibrant%20green%20color%2C%20perfect%20ripe%20avocados%20arranged%20artistically%2C%20professional%20product%20photography%20for%20gourmet%20grocery%20store&width=400&height=300&seq=2&orientation=landscape" alt="Organic Avocados" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Avocados</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.8</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Premium Hass avocados, perfectly ripe and ready to eat</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$6.99</span>
+<span class="text-sm text-gray-500 ml-1">/ pack</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=artisanal%20sourdough%20bread%20loaf%20on%20wooden%20cutting%20board%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20crusty%20golden%20exterior%20with%20visible%20texture%2C%20professional%20bakery%20product%20photography%20for%20gourmet%20grocery%20store&width=400&height=300&seq=3&orientation=landscape" alt="Artisanal Sourdough" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Artisanal Sourdough</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.7</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Freshly baked sourdough with perfect crust and texture</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$5.49</span>
+<span class="text-sm text-gray-500 ml-1">/ loaf</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=premium%20organic%20berries%20assortment%20in%20wooden%20box%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20fresh%20and%20vibrant%20strawberries%2C%20blueberries%20and%20raspberries%2C%20professional%20product%20photography%20for%20gourmet%20grocery%20store&width=400&height=300&seq=4&orientation=landscape" alt="Mixed Berries Box" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Mixed Berries Box</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.9</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Organic strawberries, blueberries, and raspberries</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$8.99</span>
+<span class="text-sm text-gray-500 ml-1">/ box</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=premium%20cold-pressed%20olive%20oil%20in%20elegant%20glass%20bottle%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20golden%20olive%20oil%20with%20rich%20color%2C%20professional%20product%20photography%20for%20gourmet%20grocery%20store&width=400&height=300&seq=5&orientation=landscape" alt="Extra Virgin Olive Oil" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Extra Virgin Olive Oil</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.6</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Cold-pressed Italian olive oil, perfect for cooking</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$12.99</span>
+<span class="text-sm text-gray-500 ml-1">/ bottle</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div id="restaurantContent" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=gourmet%20wood-fired%20margherita%20pizza%20with%20fresh%20basil%20and%20buffalo%20mozzarella%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20perfectly%20charred%20crust%2C%20professional%20restaurant%20food%20photography&width=400&height=300&seq=6&orientation=landscape" alt="Margherita Pizza" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Margherita Pizza</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.8</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Wood-fired with buffalo mozzarella and fresh basil</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$15.99</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=gourmet%20pad%20thai%20with%20shrimp%2C%20beautifully%20plated%20on%20ceramic%20dish%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20garnished%20with%20lime%20and%20peanuts%2C%20professional%20restaurant%20food%20photography&width=400&height=300&seq=7&orientation=landscape" alt="Pad Thai" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Pad Thai</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.7</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Classic Thai noodles with shrimp and crushed peanuts</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$18.49</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=gourmet%20beef%20burger%20with%20melted%20cheese%2C%20crispy%20bacon%2C%20and%20fresh%20vegetables%20on%20wooden%20board%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20juicy%20patty%2C%20professional%20restaurant%20food%20photography&width=400&height=300&seq=8&orientation=landscape" alt="Gourmet Burger" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Gourmet Burger</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.9</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Angus beef with aged cheddar and truffle aioli</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$16.99</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=gourmet%20sushi%20platter%20with%20variety%20of%20nigiri%20and%20maki%20rolls%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20beautifully%20arranged%20on%20black%20slate%2C%20professional%20restaurant%20food%20photography&width=400&height=300&seq=9&orientation=landscape" alt="Sushi Platter" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Sushi Platter</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.8</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Assorted nigiri and maki with premium fish</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$24.99</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Restaurants -->
+<section class="py-12 bg-white">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-2xl font-bold text-gray-900">Featured Restaurants</h2>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+View All
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+<div class="restaurant-scroll flex space-x-6 overflow-x-auto pb-4">
+<div class="min-w-[280px] bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 relative">
+<img src="https://readdy.ai/api/search-image?query=elegant%20Italian%20restaurant%20interior%20with%20ambient%20lighting%2C%20high-quality%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20wooden%20tables%20with%20white%20tablecloths%2C%20professional%20restaurant%20photography&width=400&height=200&seq=10&orientation=landscape" alt="La Trattoria" class="w-full h-full object-cover object-top">
+<div class="absolute bottom-3 left-3 w-14 h-14 bg-white rounded-lg shadow-md flex items-center justify-center p-1">
+<div class="w-10 h-10 flex items-center justify-center text-red-500">
+<i class="ri-restaurant-2-fill ri-xl"></i>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">La Trattoria</h3>
+<div class="flex items-center bg-green-100 px-2 py-0.5 rounded text-green-800">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-xs font-medium">4.8</span>
+</div>
+</div>
+<div class="flex items-center text-sm text-gray-600 mb-3">
+<span>Italian • Pasta • Pizza</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center text-gray-600">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>25-35 min</span>
+</div>
+<div class="flex items-center text-gray-600">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-money-dollar-circle-line"></i>
+</div>
+<span>$15 min</span>
+</div>
+</div>
+</div>
+</div>
+<div class="min-w-[280px] bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 relative">
+<img src="https://readdy.ai/api/search-image?query=modern%20Japanese%20sushi%20restaurant%20interior%20with%20minimalist%20design%2C%20high-quality%20photography%2C%20soft%20natural%20lighting%2C%20clean%20lines%2C%20sushi%20bar%20with%20chefs%2C%20professional%20restaurant%20photography&width=400&height=200&seq=11&orientation=landscape" alt="Sakura Sushi" class="w-full h-full object-cover object-top">
+<div class="absolute bottom-3 left-3 w-14 h-14 bg-white rounded-lg shadow-md flex items-center justify-center p-1">
+<div class="w-10 h-10 flex items-center justify-center text-blue-500">
+<i class="ri-sushi-fill ri-xl"></i>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Sakura Sushi</h3>
+<div class="flex items-center bg-green-100 px-2 py-0.5 rounded text-green-800">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-xs font-medium">4.9</span>
+</div>
+</div>
+<div class="flex items-center text-sm text-gray-600 mb-3">
+<span>Japanese • Sushi • Ramen</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center text-gray-600">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>30-45 min</span>
+</div>
+<div class="flex items-center text-gray-600">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-money-dollar-circle-line"></i>
+</div>
+<span>$20 min</span>
+</div>
+</div>
+</div>
+</div>
+<div class="min-w-[280px] bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 relative">
+<img src="https://readdy.ai/api/search-image?query=upscale%20burger%20restaurant%20interior%20with%20industrial%20design%20elements%2C%20high-quality%20photography%2C%20soft%20natural%20lighting%2C%20brick%20walls%2C%20leather%20booths%2C%20professional%20restaurant%20photography&width=400&height=200&seq=12&orientation=landscape" alt="Gourmet Burger Co." class="w-full h-full object-cover object-top">
+<div class="absolute bottom-3 left-3 w-14 h-14 bg-white rounded-lg shadow-md flex items-center justify-center p-1">
+<div class="w-10 h-10 flex items-center justify-center text-yellow-500">
+<i class="ri-burger-fill ri-xl"></i>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Gourmet Burger Co.</h3>
+<div class="flex items-center bg-green-100 px-2 py-0.5 rounded text-green-800">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-xs font-medium">4.7</span>
+</div>
+</div>
+<div class="flex items-center text-sm text-gray-600 mb-3">
+<span>American • Burgers • Fries</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center text-gray-600">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>20-30 min</span>
+</div>
+<div class="flex items-center text-gray-600">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-money-dollar-circle-line"></i>
+</div>
+<span>$18 min</span>
+</div>
+</div>
+</div>
+</div>
+<div class="min-w-[280px] bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-40 relative">
+<img src="https://readdy.ai/api/search-image?query=modern%20Thai%20restaurant%20interior%20with%20elegant%20decor%2C%20high-quality%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20decorative%20elements%2C%20professional%20restaurant%20photography&width=400&height=200&seq=13&orientation=landscape" alt="Thai Orchid" class="w-full h-full object-cover object-top">
+<div class="absolute bottom-3 left-3 w-14 h-14 bg-white rounded-lg shadow-md flex items-center justify-center p-1">
+<div class="w-10 h-10 flex items-center justify-center text-green-500">
+<i class="ri-restaurant-fill ri-xl"></i>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Thai Orchid</h3>
+<div class="flex items-center bg-green-100 px-2 py-0.5 rounded text-green-800">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-xs font-medium">4.6</span>
+</div>
+</div>
+<div class="flex items-center text-sm text-gray-600 mb-3">
+<span>Thai • Curry • Noodles</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center text-gray-600">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>35-45 min</span>
+</div>
+<div class="flex items-center text-gray-600">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-money-dollar-circle-line"></i>
+</div>
+<span>$15 min</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommendations Section -->
+<section class="py-12 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center mb-2">
+<h2 class="text-2xl font-bold text-gray-900">Recommended for You</h2>
+</div>
+<p class="text-gray-600 mb-8">Based on your previous orders and browsing history</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=premium%20organic%20strawberries%20in%20wooden%20basket%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20fresh%20and%20vibrant%20red%20color%2C%20professional%20product%20photography%20for%20gourmet%20grocery%20store&width=400&height=300&seq=14&orientation=landscape" alt="Organic Strawberries" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Strawberries</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.7</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Sweet and juicy premium strawberries</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$4.99</span>
+<span class="text-sm text-gray-500 ml-1">/ box</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=gourmet%20chicken%20tikka%20masala%20in%20elegant%20serving%20dish%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20vibrant%20colors%20with%20garnish%2C%20professional%20restaurant%20food%20photography&width=400&height=300&seq=15&orientation=landscape" alt="Chicken Tikka Masala" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Chicken Tikka Masala</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.8</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Spicy curry with tender chicken pieces</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$16.99</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=premium%20organic%20almond%20milk%20in%20elegant%20glass%20bottle%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20creamy%20white%20liquid%2C%20professional%20product%20photography%20for%20gourmet%20grocery%20store&width=400&height=300&seq=16&orientation=landscape" alt="Organic Almond Milk" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Almond Milk</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.5</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Unsweetened almond milk, perfect for smoothies</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$3.99</span>
+<span class="text-sm text-gray-500 ml-1">/ bottle</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=gourmet%20chocolate%20brownie%20with%20vanilla%20ice%20cream%2C%20high-quality%20food%20photography%2C%20soft%20natural%20lighting%2C%20minimalist%20styling%2C%20rich%20dark%20chocolate%20with%20melting%20ice%20cream%2C%20professional%20restaurant%20dessert%20photography&width=400&height=300&seq=17&orientation=landscape" alt="Chocolate Brownie" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Chocolate Brownie</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.9</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Rich chocolate brownie with vanilla ice cream</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$7.99</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Download App Section -->
+<section class="py-16 bg-gradient-to-r from-primary/10 to-primary/5">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row items-center justify-between">
+<div class="md:w-1/2 mb-10 md:mb-0">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Download the UrbanEats App</h2>
+<p class="text-lg text-gray-700 mb-8">Get exclusive offers, track your orders in real-time, and enjoy a seamless shopping experience with our mobile app.</p>
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="px-6 py-3 bg-black text-white font-medium rounded-button shadow-lg hover:bg-gray-900 transition-colors whitespace-nowrap flex items-center justify-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+App Store
+</button>
+<button class="px-6 py-3 bg-black text-white font-medium rounded-button shadow-lg hover:bg-gray-900 transition-colors whitespace-nowrap flex items-center justify-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-google-play-fill ri-lg"></i>
+</div>
+Google Play
+</button>
+</div>
+</div>
+<div class="md:w-1/2 flex justify-center">
+<img src="https://readdy.ai/api/search-image?query=elegant%20smartphone%20mockup%20showing%20food%20delivery%20app%20interface%20with%20grocery%20and%20restaurant%20sections%2C%20high-quality%20digital%20mockup%2C%20clean%20modern%20UI%20design%2C%20soft%20shadows%2C%20professional%20app%20showcase%20photography&width=500&height=500&seq=18&orientation=portrait" alt="UrbanEats App" class="w-full max-w-sm rounded-xl shadow-xl">
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-12 bg-white">
+<div class="container mx-auto px-4">
+<div class="max-w-2xl mx-auto text-center">
+<h2 class="text-2xl font-bold text-gray-900 mb-4">Subscribe to Our Newsletter</h2>
+<p class="text-gray-600 mb-8">Stay updated with the latest offers, new restaurants, and seasonal specials.</p>
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0">
+<input type="email" class="flex-grow px-4 py-3 rounded-l-button sm:rounded-r-none rounded-r-button text-gray-700 bg-gray-100 border-none focus:ring-2 focus:ring-primary/20 focus:outline-none" placeholder="Enter your email address">
+<button class="px-6 py-3 bg-primary text-white font-medium rounded-l-none sm:rounded-l-none rounded-r-button shadow-md hover:bg-primary/90 transition-colors whitespace-nowrap !rounded-button">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<h3 class="text-xl font-['Pacifico'] text-white mb-6">logo</h3>
+<p class="text-gray-400 mb-6">Premium groceries and restaurant food delivery service, bringing quality to your doorstep.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-primary transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-primary transition-colors">
+<i class="ri-pinterest-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Grocery Categories</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Restaurant Partners</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Become a Partner</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Customer Support</h4>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Order Tracking</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Feedback</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Contact Information</h4>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5 text-gray-400">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">1234 Urban Street, Suite 500<br>New York, NY 10001</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2 text-gray-400">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">+1 (555) 123-4567</span>
+</li>
+<li class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2 text-gray-400">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">support@urbaneats.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 UrbanEats. All rights reserved.</p>
+<div class="flex flex-wrap justify-center space-x-6">
+<a href="#" class="text-gray-400 text-sm hover:text-white transition-colors mb-2">Privacy Policy</a>
+<a href="#" class="text-gray-400 text-sm hover:text-white transition-colors mb-2">Terms of Service</a>
+<a href="#" class="text-gray-400 text-sm hover:text-white transition-colors mb-2">Shipping Policy</a>
+<a href="#" class="text-gray-400 text-sm hover:text-white transition-colors mb-2">Refund Policy</a>
+</div>
+<div class="flex items-center space-x-4 mt-4 md:mt-0">
+<div class="w-8 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-visa-fill ri-lg"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-mastercard-fill ri-lg"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-paypal-fill ri-lg"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const groceryTab = document.getElementById('groceryTab');
+const restaurantTab = document.getElementById('restaurantTab');
+const groceryContent = document.getElementById('groceryContent');
+const restaurantContent = document.getElementById('restaurantContent');
+groceryTab.addEventListener('click', function() {
+groceryTab.classList.add('bg-primary', 'text-white');
+groceryTab.classList.remove('text-gray-700');
+restaurantTab.classList.remove('bg-primary', 'text-white');
+restaurantTab.classList.add('text-gray-700');
+groceryContent.classList.remove('hidden');
+restaurantContent.classList.add('hidden');
+});
+restaurantTab.addEventListener('click', function() {
+restaurantTab.classList.add('bg-primary', 'text-white');
+restaurantTab.classList.remove('text-gray-700');
+groceryTab.classList.remove('bg-primary', 'text-white');
+groceryTab.classList.add('text-gray-700');
+restaurantContent.classList.remove('hidden');
+groceryContent.classList.add('hidden');
+});
+});
+</script>
+</body>
+</html>

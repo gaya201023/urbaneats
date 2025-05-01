@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Groceries - UrbanEats</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#10B981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+  font-family: 'Inter', sans-serif;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+.category-scroll::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<div class="flex items-center">
+<a href="index.html" class="text-2xl font-['Pacifico'] text-primary mr-8">logo</a>
+</div>
+<div class="relative w-full max-w-md mx-4">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<input type="search" class="w-full pl-10 pr-4 py-2.5 text-sm text-gray-700 bg-gray-100 rounded-full border-none focus:ring-2 focus:ring-primary/20 focus:outline-none" placeholder="Search for groceries...">
+</div>
+<div class="flex items-center space-x-5">
+<div class="flex items-center text-sm text-gray-700 cursor-pointer">
+<div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="hidden md:inline">New York, NY</span>
+</div>
+<div class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 cursor-pointer hover:bg-gray-200 transition-colors">
+<i class="ri-user-line"></i>
+</div>
+<div class="relative w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 cursor-pointer hover:bg-gray-200 transition-colors">
+<i class="ri-shopping-cart-line"></i>
+<span class="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center text-xs text-white bg-primary rounded-full">3</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Categories Bar -->
+<div class="sticky top-[73px] z-40 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4">
+<div class="category-scroll flex space-x-4 overflow-x-auto">
+<button class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-full whitespace-nowrap">All Items</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors">Fresh Produce</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors">Dairy & Eggs</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors">Meat & Seafood</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors">Bakery</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors">Pantry</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors">Beverages</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors">Snacks</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-gray-200 transition-colors">Organic</button>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="container mx-auto px-4 py-8">
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Filters Sidebar -->
+<div class="lg:w-64 flex-shrink-0">
+<div class="bg-white rounded-lg shadow-sm p-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">Filters</h3>
+<!-- Price Range -->
+<div class="mb-6">
+<h4 class="text-sm font-medium text-gray-700 mb-3">Price Range</h4>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Under $10</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">$10 - $25</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">$25 - $50</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Over $50</span>
+</label>
+</div>
+</div>
+<!-- Dietary -->
+<div class="mb-6">
+<h4 class="text-sm font-medium text-gray-700 mb-3">Dietary</h4>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Vegetarian</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Vegan</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Gluten Free</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Organic</span>
+</label>
+</div>
+</div>
+<!-- Brands -->
+<div class="mb-6">
+<h4 class="text-sm font-medium text-gray-700 mb-3">Brands</h4>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Nature's Best</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Organic Valley</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Fresh Fields</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600">Wholesome Foods</span>
+</label>
+</div>
+</div>
+<!-- Rating -->
+<div>
+<h4 class="text-sm font-medium text-gray-700 mb-3">Rating</h4>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600 flex items-center">
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600 flex items-center">
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-line text-gray-300"></i>
+& up
+</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded">
+<span class="ml-2 text-sm text-gray-600 flex items-center">
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-fill text-yellow-400"></i>
+<i class="ri-star-line text-gray-300"></i>
+<i class="ri-star-line text-gray-300"></i>
+& up
+</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Products Grid -->
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-bold text-gray-900">Fresh Produce</h2>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<button class="px-4 py-2 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors flex items-center">
+<span>Sort by: Popular</span>
+<div class="w-5 h-5 flex items-center justify-center ml-2">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+</div>
+<div class="relative">
+<button class="px-4 py-2 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors flex items-center">
+<span>24 per page</span>
+<div class="w-5 h-5 flex items-center justify-center ml-2">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=fresh organic avocados on clean white background, high-quality food photography, soft natural lighting, minimalist styling, fresh and vibrant green color, professional product photography&width=400&height=300&seq=19&orientation=landscape" alt="Organic Avocados" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Avocados</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.8</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Premium Hass avocados, perfectly ripe</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$6.99</span>
+<span class="text-sm text-gray-500 ml-1">/ pack</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=fresh organic strawberries in wooden basket, high-quality food photography, soft natural lighting, minimalist styling, vibrant red color, professional product photography&width=400&height=300&seq=20&orientation=landscape" alt="Organic Strawberries" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Strawberries</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.7</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Sweet and juicy premium strawberries</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$4.99</span>
+<span class="text-sm text-gray-500 ml-1">/ box</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=fresh organic spinach leaves on clean white background, high-quality food photography, soft natural lighting, minimalist styling, vibrant green color, professional product photography&width=400&height=300&seq=21&orientation=landscape" alt="Organic Baby Spinach" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Baby Spinach</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.6</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Fresh and tender baby spinach leaves</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$3.99</span>
+<span class="text-sm text-gray-500 ml-1">/ bag</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=fresh organic tomatoes on clean white background, high-quality food photography, soft natural lighting, minimalist styling, vibrant red color, professional product photography&width=400&height=300&seq=22&orientation=landscape" alt="Organic Tomatoes" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Tomatoes</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.5</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Vine-ripened organic tomatoes</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$5.99</span>
+<span class="text-sm text-gray-500 ml-1">/ lb</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=fresh organic bell peppers assortment on clean white background, high-quality food photography, soft natural lighting, minimalist styling, vibrant colors, professional product photography&width=400&height=300&seq=23&orientation=landscape" alt="Organic Bell Peppers" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Bell Peppers</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.7</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Colorful mix of fresh bell peppers</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$4.99</span>
+<span class="text-sm text-gray-500 ml-1">/ lb</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=fresh organic cucumbers on clean white background, high-quality food photography, soft natural lighting, minimalist styling, vibrant green color, professional product photography&width=400&height=300&seq=24&orientation=landscape" alt="Organic Cucumbers" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-medium text-gray-900">Organic Cucumbers</h3>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center text-yellow-400 mr-1">
+<i class="ri-star-fill"></i>
+</div>
+<span class="text-sm text-gray-700">4.6</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 mb-3">Crisp and refreshing cucumbers</p>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-lg font-semibold text-gray-900">$2.99</span>
+<span class="text-sm text-gray-500 ml-1">/ each</span>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors !rounded-button">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex justify-center">
+<nav class="flex items-center space-x-2">
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-white text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors">
+<i class="ri-arrow-left-s-line"></i>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white">1</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-white text-gray-700 hover:bg-gray-50 transition-colors">2</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-white text-gray-700 hover:bg-gray-50 transition-colors">3</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-white text-gray-700 hover:bg-gray-50 transition-colors">4</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full bg-white text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors">
+<i class="ri-arrow-right-s-line"></i>
+</button>
+</nav>
+</div>
+</div>
+</div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const categoryButtons = document.querySelectorAll('.category-scroll button');
+  
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      categoryButtons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white');
+        btn.classList.add('bg-gray-100', 'text-gray-700');
+      });
+      
+      this.classList.remove('bg-gray-100', 'text-gray-700');
+      this.classList.add('bg-primary', 'text-white');
+    });
+  });
+});
+</script>
+</body>
+</html>
